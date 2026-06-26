@@ -1,13 +1,25 @@
-<!-- Respo-1: on3 -->
-<div id="on3"
-     data-id="ID-01-ACT"
-     data-gate="GATE-α"
-     data-tmp="TMP-1">
-</div>
+<div id="pulse"></div>
 
-<!-- Respo-2: 3te -->
-<div id="3te"
-     data-id="ID-02-EDGE"
-     data-gate="GATE-β"
-     data-tmp="TMP-2">
-</div>
+<style>
+  body {
+    background: black;
+    margin: 0;
+    overflow: hidden;
+  }
+  #pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: beat 1.2s infinite ease-in-out;
+  }
+  @keyframes beat {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  }
+</style>
