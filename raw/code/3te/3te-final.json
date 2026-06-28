@@ -1,1 +1,19 @@
+{
+  "id": "3TE-FINAL",
+  "type": "nc3-final-node",
+  "lage": "/raw/code/3te/",
+  "name": "3te-final",
+  "payload": {
+    "state": "closed",
+    "rawator": true,
+    "final": true,
+    "handover": "6ME",
+    "beam": {
+      "origin": "NC3-PORT-K",
+      "to": "NC3-FINAL",
+      "state": "locked"
+    },
+    "seal": "NC3-RW-FINAL-SEAL"
+  }
+}
 
