@@ -1,1 +1,16 @@
+{
+  "id": "3TE-006",
+  "lage": "/raw/code/3te/",
+  "name": "item-006",
+  "type": "NC3",
+  "payload": {
+    "state": "active",
+    "rawator": true,
+    "beam": {
+      "origin": "NC3-PORT-F",
+      "to": "NC3-PORT-G",
+      "state": "active"
+    }
+  }
+}
 
