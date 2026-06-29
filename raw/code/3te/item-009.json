@@ -1,15 +1,16 @@
 {
-  "id": "3TE-009",
-  "lage": "/raw/code/3te/",
-  "name": "item-009",
-  "type": "NC3",
-  "payload": {
-    "state": "active",
-    "rawator": true,
-    "beam": {
-      "origin": "NC3-PORT-I",
-      "to": "NC3-PORT-J",
-      "state": "active"
-    }
+  "respo": "Q9",
+  "id_op": "Q9",
+  "base": 9,
+
+  "line": "L(n)=3n",
+  "instance": "I(n)=base+3n",
+  "axis": "A(n)=floor(n/3)+1",
+
+  "x4": {
+    "font": "MS Gothic",
+    "size": 24,
+    "color": "#ffffff",
+    "effect": "none"
   }
 }
