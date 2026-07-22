@@ -6,6 +6,7 @@
     margin: 0;
     overflow: hidden;
   }
+
   #punkt {
     position: absolute;
     top: 50%;
@@ -17,9 +18,70 @@
     transform: translate(-50%, -50%);
     animation: haha 1.1s infinite ease-in-out;
   }
+
   @keyframes haha {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.5; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    0%   { transform: translate(-50%, -50%) scale(1);   opacity: 1;   }
+    50%  { transform: translate(-50%, -50%) scale(1.4); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1);   opacity: 1;   }
   }
 </style>
+
+<script>
+/* ---------------------------------------------------------
+   ENGINE – IMPULS‑MODUL
+   Der Punkt wird zum System‑Impuls:
+   4RE → 6E → 6D → ULTRA
+--------------------------------------------------------- */
+
+const ENGINE = {
+
+  // 4RE – Rohimpulse
+  axis4RE: ["DA","NE","BEN","AI"],
+
+  // 6E – Erweiterte Impulse
+  axis6E: ["DA","NE","BEN","AI","IX","XI"],
+
+  // 6D – Tiefenmatrix
+  axis6D: ["D0","D1","D2","D3","D4","D5"],
+
+  // MRON – Rotation
+  mron: ["DA","NE","BEN","AI","IX","XI","DA"],
+
+  // S333 – Synchronität
+  s333: ["DA","NE","BEN"],
+
+  // TMP – Zentrum
+  tmp: "D2",
+
+  // NC – Konverter
+  nc: {
+    "9to3": true,
+    "3to9": true,
+    "ULTRA": true
+  },
+
+  // Punkt‑Impuls
+  impulse(){
+    return {
+      axis4RE: this.axis4RE,
+      axis6E: this.axis6E,
+      axis6D: this.axis6D,
+      mron: this.mron,
+      s333: this.s333,
+      tmp: this.tmp,
+      nc: this.nc
+    };
+  }
+};
+
+/* ---------------------------------------------------------
+   PUNKT – ENGINE‑VERBINDUNG
+--------------------------------------------------------- */
+
+const punkt = document.getElementById("punkt");
+
+punkt.addEventListener("click", () => {
+  const out = ENGINE.impulse();
+  console.log("IMPULS:", out);
+});
+</script>
