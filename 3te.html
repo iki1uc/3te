@@ -1,0 +1,31 @@
+function draw3TE(x){
+    // Operator-Ring
+    x.strokeStyle = "#0f0";
+    x.beginPath();
+    x.arc(250,250,120,0,Math.PI*2);
+    x.stroke();
+
+    // Reset-Ring
+    x.strokeStyle = "#4cf";
+    x.beginPath();
+    x.arc(250,250,70,0,Math.PI*2);
+    x.stroke();
+
+    // Signal-Ring
+    x.strokeStyle = "#0f0";
+    x.beginPath();
+    x.arc(250,250,140,0,Math.PI*2);
+    x.stroke();
+
+    // Meta-Ring
+    x.strokeStyle = "#f90";
+    x.beginPath();
+    x.arc(250,250,210,0,Math.PI*2);
+    x.stroke();
+
+    // TMP-Zentrum
+    x.fillStyle = "#fff";
+    x.beginPath();
+    x.arc(250,250,10,0,Math.PI*2);
+    x.fill();
+}
