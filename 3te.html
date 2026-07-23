@@ -1,3 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>3te – Operator‑Axiom</title>
+
+  <style>
+    body {
+      background: black;
+      margin: 0;
+      overflow: hidden;
+    }
+    #canvas3te {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="canvas3te" width="500" height="500"></canvas>
+
+<script>
+/* ---------------------------------------------------------
+   3TE – Vollständige 27e Matrix (namentlich + funktional)
+--------------------------------------------------------- */
+
+const MATRIX_3TE = {
+
+  operator: {
+    IN: () => "Operator IN aktiviert",
+    DA: () => "Operator DA aktiviert",
+    NE: () => "Operator NE aktiviert",
+    BEN: () => "Operator BEN aktiviert"
+  },
+
+  reset: {
+    IX: () => "Reset IX",
+    XI: () => "Reset XI",
+    UP: () => "Reset UP",
+    IN: () => "Reset IN",
+    SET: () => "Reset SET"
+  },
+
+  signal: {
+    X: () => "Signal X",
+    Z: () => "Signal Z",
+    Q: () => "Signal Q",
+    U: () => "Signal U",
+    S: () => "Signal S",
+    D: () => "Signal D"
+  },
+
+  meta: {
+    M: () => "Meta M",
+    B: () => "Meta B",
+    H: () => "Meta H",
+    Z: () => "Meta Z",
+    ORT: () => "Meta ORT",
+    HOME: () => "Meta HOME",
+    ROOM: () => "Meta ROOM"
+  },
+
+  tmp: {
+    B: () => "TMP B",
+    H: () => "TMP H",
+    T: () => "TMP T",
+    RAUM: () => "TMP RAUM",
+    ZENTRUM: () => "TMP ZENTRUM"
+  },
+
+  find(axis){
+    if(this.operator[axis]) return this.operator[axis];
+    if(this.reset[axis]) return this.reset[axis];
+    if(this.signal[axis]) return this.signal[axis];
+    if(this.meta[axis]) return this.meta[axis];
+    if(this.tmp[axis]) return this.tmp[axis];
+    return () => "Unbekannte Achse: " + axis;
+  }
+};
+
+/* ---------------------------------------------------------
+   3TE – NC‑Achsen‑Map
+--------------------------------------------------------- */
+
+const NC_MAP_3TE = {
+  R: ["IX","XI","UP","IN","SET"],
+  O: ["IN","DA","NE","BEN"],
+  S: ["X","Z","Q","U","S","D"],
+  M: ["M","B","H","Z","ORT","HOME","ROOM"],
+  TMP: ["B","H","T","RAUM","ZENTRUM"]
+};
+
+/* ---------------------------------------------------------
+   3TE – Operator‑Sequenz
+--------------------------------------------------------- */
+
+const SEQ_3TE = {
+  O_SEQ: ["IN","DA","NE","BEN","IN"],
+
+  next(axis){
+    const i = this.O_SEQ.indexOf(axis);
+    return this.O_SEQ[i+1] || this.O_SEQ[0];
+  }
+};
+
+/* ---------------------------------------------------------
+   3TE – Visualisierung
+--------------------------------------------------------- */
+
 function draw3TE(x){
     // Operator-Ring
     x.strokeStyle = "#0f0";
@@ -29,3 +141,22 @@ function draw3TE(x){
     x.arc(250,250,10,0,Math.PI*2);
     x.fill();
 }
+
+/* ---------------------------------------------------------
+   3TE – Canvas Engine
+--------------------------------------------------------- */
+
+const c = document.getElementById("canvas3te");
+const x = c.getContext("2d");
+
+function loop(){
+    x.clearRect(0,0,500,500);
+    draw3TE(x);
+    requestAnimationFrame(loop);
+}
+
+loop();
+</script>
+
+</body>
+</html>
